@@ -1,3 +1,7 @@
 GET http://localhost:5000/foo
 ####
 GET http://localhost:5000/bar
+###
+GET http://localhost:5000/product-to-json
+###
+GET http://localhost:5000/json-to-product
