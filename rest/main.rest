@@ -5,3 +5,19 @@ GET http://localhost:5000/bar
 GET http://localhost:5000/product-to-json
 ###
 GET http://localhost:5000/json-to-product
+###
+GET http://localhost:5000/products
+###
+POST http://localhost:5000/products
+
+{
+    "productId": 0,
+    "manufacturer": "New Company",
+    "sku": "01",
+    "upc": "02",
+    "pricePerUnit": "25.00",
+    "quantityOnHand": 5,
+    "productName": "Lego"
+}
+### undefined method
+OPTIONS  http://localhost:5000/products
