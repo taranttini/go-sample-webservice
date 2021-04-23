@@ -21,3 +21,21 @@ POST http://localhost:5000/products
 }
 ### undefined method
 OPTIONS  http://localhost:5000/products
+### get product 1
+GET  http://localhost:5000/products/1
+### get product 2
+GET  http://localhost:5000/products/2
+### get product 3
+GET  http://localhost:5000/products/3
+### update product 3
+PUT  http://localhost:5000/products/3
+
+{
+    "productId": 3,
+    "manufacturer": "Company Updated",
+    "sku": "0000",
+    "upc": "1111",
+    "pricePerUnit": "50.00",
+    "quantityOnHand": 50,
+    "productName": "Pizza"
+}
