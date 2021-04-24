@@ -236,3 +236,43 @@ func main() {
 	http.ListenAndServe(":5000", nil)
 }
 ```
+
+```
+package database
+
+import (
+	"database/sql"
+	"fmt"
+
+	_ "github.com/go-sql-driver/mysql"
+)
+
+var DbConn *sql.DB
+
+func dbConn(dbServer string) (db *sql.DB) {
+	dbDriver := "mysql"
+	dbUser := "root"
+	dbPass := "mysql"
+	dbName := "inventorydb"
+	dbPort := "3306"
+
+	dbConnection := dbUser + ":" + dbPass + "@tcp(" + dbServer + ":" + dbPort + ")/" + dbName
+	db, err := sql.Open(dbDriver, dbConnection)
+	if err != nil {
+		fmt.Printf("%#v\n DB_ERROR_CONNECTION\n", err.Error())
+	} else {
+		fmt.Println("Connection Established")
+	}
+	erro := db.Ping()
+	if erro != nil {
+		fmt.Printf("%#v\n DB_PING_ERROR_CONNECTION\n", erro.Error())
+	}
+
+	return db
+}
+
+func SetupDatabase() {
+	DbConn = dbConn("localhost")
+}
+
+```
