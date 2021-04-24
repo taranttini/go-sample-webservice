@@ -1,12 +1,16 @@
 package product
 
 import (
+	"context"
 	"database/sql"
 	"inventoryservice/database"
+	"time"
 )
 
 func getProduct(productID int) (*Product, error) {
-	row := database.DbConn.QueryRow(`
+	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
+	defer cancel()
+	row := database.DbConn.QueryRowContext(ctx, `
 		SELECT productId,
 			manufacturer,
 			sku,
@@ -37,7 +41,9 @@ func getProduct(productID int) (*Product, error) {
 }
 
 func removeProduct(productID int) error {
-	_, err := database.DbConn.Query(`DELETE FROM products WHERE productId = ?`, productID)
+	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
+	defer cancel()
+	_, err := database.DbConn.ExecContext(ctx, `DELETE FROM products WHERE productId = ?`, productID)
 	if err != nil {
 		return err
 	}
@@ -45,7 +51,9 @@ func removeProduct(productID int) error {
 }
 
 func getProductList() ([]Product, error) {
-	results, err := database.DbConn.Query(`
+	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
+	defer cancel()
+	results, err := database.DbConn.QueryContext(ctx, `
 		SELECT productId,
 			manufacturer,
 			sku,
@@ -77,7 +85,9 @@ func getProductList() ([]Product, error) {
 }
 
 func updateProduct(product Product) error {
-	_, err := database.DbConn.Exec(`
+	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
+	defer cancel()
+	_, err := database.DbConn.ExecContext(ctx, `
 		UPDATE products SET
 			manufacturer=?,
 			sku=?,
@@ -101,7 +111,9 @@ func updateProduct(product Product) error {
 }
 
 func insertProduct(product Product) (int, error) {
-	result, err := database.DbConn.Exec(`
+	ctx, cancel := context.WithTimeout(context.Background(), 15*time.Second)
+	defer cancel()
+	result, err := database.DbConn.ExecContext(ctx, `
 		INSERT INTO products (
 			manufacturer,
 			sku,
