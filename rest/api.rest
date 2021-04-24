@@ -1,0 +1,31 @@
+###
+GET http://localhost:5000/api/products
+###
+GET http://localhost:5000/api/products/1
+###
+POST http://localhost:5000/api/products
+
+{
+    "manufacturer": "Company New",
+    "sku": "9000",
+    "upc": "0090",
+    "pricePerUnit": "90.90",
+    "quantityOnHand": 90,
+    "productName": "Ninety"
+}
+
+###
+PUT http://localhost:5000/api/products/3
+
+{
+    "productId": 3,
+    "manufacturer": "Company Updated",
+    "sku": "0000",
+    "upc": "1111",
+    "pricePerUnit": "50.00",
+    "quantityOnHand": 50,
+    "productName": "Pizza"
+}
+###
+DELETE http://localhost:5000/api/products/1
+###

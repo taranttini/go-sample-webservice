@@ -1,0 +1,29 @@
+[
+    {
+        "productId": 1,
+        "manufacturer": "Big Box Company",
+        "sku": "4561qHJK",
+        "upc": "414654444566",
+        "pricePerUnit": "12.99",
+        "quantityOnHand": 28,
+        "productName": "Gizmo"
+    },
+    {
+        "productId": 2,
+        "manufacturer": "Small Company",
+        "sku": "4561qABC",
+        "upc": "414654444533",
+        "pricePerUnit": "2.99",
+        "quantityOnHand": 5,
+        "productName": "Pencil"
+    },
+    {
+        "productId": 3,
+        "manufacturer": "Medium Company",
+        "sku": "4561qZYZ",
+        "upc": "414654444511",
+        "pricePerUnit": "5.98",
+        "quantityOnHand": 13,
+        "productName": "Photo"
+    }
+]

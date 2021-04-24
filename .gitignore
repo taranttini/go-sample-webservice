@@ -1,6 +1,5 @@
-**/*
-!**/*.go
-!**/
+# ignore builded main
+main
 
 # Binaries for programs and plugins
 *.exe
