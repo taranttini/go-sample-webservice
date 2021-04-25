@@ -8,7 +8,7 @@
     <title>Product Summary Report</title>
 </head>
 
-<body>
+<body style="height: 100%;">
     <h1>Product Summary Report</h1>
     <table>
         <tr>
@@ -17,7 +17,8 @@
             <th>Quantity On Hand</th>
         </tr>
         {{ range $index, $element := . }}
-        <tr>
+        {{ if mod $index 2 }} <tr style="background:#6a7d87"> {{ else }}
+        <tr> {{end}}
             <td>{{ $index }}</td>
             <td>{{ .ProductName }}</td>
             <td>{{ .QuantityOnHand }}</td>
