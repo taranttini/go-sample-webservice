@@ -114,7 +114,9 @@ func productHandler(w http.ResponseWriter, r *http.Request) {
 func SetupRoutes(apiBasePath string) {
 	handleProducts := http.HandlerFunc(productsHandler)
 	handleProduct := http.HandlerFunc(productHandler)
+	handleReport := http.HandlerFunc(productReportHandler)
 	http.Handle("/websocket", websocket.Handler(productSocket))
 	http.Handle(fmt.Sprintf("%s/%s", apiBasePath, productsBasePath), cors.Middleware(handleProducts))
 	http.Handle(fmt.Sprintf("%s/%s/", apiBasePath, productsBasePath), cors.Middleware(handleProduct))
+	http.Handle(fmt.Sprintf("%s/%s/reports", apiBasePath, productsBasePath), cors.Middleware(handleReport))
 }
