@@ -32,6 +32,6 @@ DELETE http://localhost:5000/api/products/4
 POST http://localhost:5000/api/products/reports
 
 { 
-    "productName": "Notebook"
-    // "sku": "9000"
+    //"productName": "Notebook"
+     "sku": "9000"
 }

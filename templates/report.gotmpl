@@ -10,10 +10,20 @@
 
 <body>
     <h1>Product Summary Report</h1>
-    <div>
-        <span>Product Name: {{ .ProductName }}</span>
-        <span>Quantity On Hand: {{ .QuantityOnHand }}</span>
-    </div>
+    <table>
+        <tr>
+            <th>Row</th>
+            <th>Product Name</th>
+            <th>Quantity On Hand</th>
+        </tr>
+        {{ range $index, $element := . }}
+        <tr>
+            <td>{{ $index }}</td>
+            <td>{{ .ProductName }}</td>
+            <td>{{ .QuantityOnHand }}</td>
+        </tr>
+        {{ end }}
+    </table>
 </body>
 
 </html>

@@ -40,10 +40,8 @@ func productReportHandler(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 		var tmpl bytes.Buffer
-		var product Product
 		if len(products) > 0 {
-			product = products[0]
-			err = t.Execute(&tmpl, product)
+			err = t.Execute(&tmpl, products)
 			if err != nil {
 				log.Println(err)
 				w.WriteHeader(http.StatusInternalServerError)
