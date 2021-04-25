@@ -1,0 +1,28 @@
+### file
+POST http://localhost:5000/api/receipts
+Content-Type: multipart/form-data; boundary=minha-data
+
+--minha-data
+Content-Disposition: form-data; name="receipt"; filename="api.rest"
+Content-Type: application/octet-stream
+
+< ./api.rest
+
+--minha-data--
+
+### img
+POST http://localhost:5000/api/receipts
+Content-Type: multipart/form-data; boundary=minha-data
+
+--minha-data
+Content-Disposition: form-data; name="receipt"; filename="03.jpg"
+Content-Type: image/jpeg
+
+< ./03.jpg
+
+--minha-data--
+
+###
+GET http://localhost:5000/api/receipts
+###
+GET http://localhost:5000/api/receipts/03.jpg

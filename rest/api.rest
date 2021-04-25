@@ -21,7 +21,7 @@ PUT http://localhost:5000/api/products/3
     "productId": 3,
     "manufacturer": "Company Updated",
     "sku": "0000",
-    "upc": 11111",
+    "upc": "1111",
     "pricePerUnit": "50.00",
     "quantityOnHand": 50,
     "productName": "Pizza"
